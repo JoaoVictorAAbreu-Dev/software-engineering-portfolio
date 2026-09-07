@@ -65,7 +65,7 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
 
     upsertMeta('meta[property="og:site_name"]', {
       property: "og:site_name",
-      content: "Joao Victor Alves de Abreu Portfolio",
+      content: "João Victor Alves de Abreu | Portfólio",
     });
 
     upsertMeta('meta[property="og:locale"]', {
@@ -85,7 +85,7 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
 
     upsertMeta('meta[property="og:image:alt"]', {
       property: "og:image:alt",
-      content: "Foto de perfil de Joao Victor Alves de Abreu",
+      content: "Foto de perfil de João Victor Alves de Abreu",
     });
 
     upsertMeta('meta[name="twitter:title"]', {
@@ -115,7 +115,7 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
 
     upsertMeta('meta[name="twitter:image:alt"]', {
       name: "twitter:image:alt",
-      content: "Foto de perfil de Joao Victor Alves de Abreu",
+      content: "Foto de perfil de João Victor Alves de Abreu",
     });
 
     upsertLink('link[rel="canonical"]', {
