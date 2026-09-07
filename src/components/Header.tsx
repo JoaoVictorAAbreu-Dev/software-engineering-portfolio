@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { HiOutlineArrowDownTray, HiOutlineArrowRight } from "react-icons/hi2";
+import { HiOutlineArrowDownTray } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 import { navItems } from "../data/portfolio";
 
 export function Header() {
+  const menuButton = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
   const resumeUrl = `${import.meta.env.BASE_URL}curriculo-joao-victor.pdf`;
   const sectionHref = (hash: string) => `${import.meta.env.BASE_URL}${hash}`;
@@ -17,6 +18,7 @@ export function Header() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(false);
+        menuButton.current?.focus();
       }
     };
 
@@ -31,17 +33,17 @@ export function Header() {
           <span className="brand-mark">JV</span>
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-[var(--text-strong)]">
-              Joao Victor Alves de Abreu
+              João Victor Alves de Abreu
             </p>
             <p className="truncate text-xs text-[var(--text-muted)]">
-              Backend Engineering Portfolio
+              Backend em formação
             </p>
           </div>
         </NavLink>
 
         <nav
           className="hidden items-center gap-1 lg:flex"
-          aria-label="Navegacao principal"
+          aria-label="Navegação principal"
         >
           {navItems.map((item) => (
             <a
@@ -57,17 +59,14 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <a href={resumeUrl} download className="btn-secondary">
             <HiOutlineArrowDownTray />
-            Curriculo
-          </a>
-          <a href={sectionHref("#contato")} className="btn-primary">
-            <HiOutlineArrowRight />
-            Contato
+            Currículo
           </a>
         </div>
 
         <button
+          ref={menuButton}
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-elevated)] text-[var(--text-strong)] lg:hidden"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-elevated)] text-[var(--text-strong)] lg:hidden"
           onClick={() => setOpen((current) => !current)}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
@@ -78,7 +77,8 @@ export function Header() {
       </div>
 
       {open ? (
-        <div
+        <nav
+          aria-label="Navegação móvel"
           id="mobile-navigation"
           className="border-t border-[var(--border-soft)] px-4 pb-4 pt-2 lg:hidden"
         >
@@ -100,10 +100,10 @@ export function Header() {
               className="btn-secondary justify-center"
             >
               <HiOutlineArrowDownTray />
-              Baixar curriculo
+              Baixar currículo
             </a>
           </div>
-        </div>
+        </nav>
       ) : null}
     </header>
   );

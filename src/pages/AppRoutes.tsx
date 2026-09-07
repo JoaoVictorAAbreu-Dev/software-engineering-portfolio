@@ -1,7 +1,9 @@
 import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-const HomePage = lazy(async () => import("./HomePage").then((module) => ({ default: module.HomePage })));
+const HomePage = lazy(async () =>
+  import("./HomePage").then((module) => ({ default: module.HomePage })),
+);
 const ProjectPage = lazy(async () =>
   import("./ProjectPage").then((module) => ({ default: module.ProjectPage })),
 );
