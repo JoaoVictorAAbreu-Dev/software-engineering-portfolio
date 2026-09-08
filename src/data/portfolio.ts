@@ -22,6 +22,8 @@ export const projects: ProjectItem[] = [
     status: "Repositório público",
     description:
       "API REST para monitoramento operacional, priorização de eventos e consolidação de indicadores de risco.",
+    result:
+      "Escopo público com login, health check, eventos operacionais e dashboard de indicadores.",
     contribution:
       "Desenvolvi o backend em Java 21 e Spring Boot, com autenticação e persistência relacional.",
     technologies: [
@@ -48,6 +50,8 @@ export const projects: ProjectItem[] = [
     status: "2026",
     description:
       "Solução de sustentabilidade e IoT para monitoramento de dados energéticos e recomendações de eficiência.",
+    result:
+      "Backend acadêmico com monitoramento energético, integração REST e processamento para recomendações.",
     contribution:
       "Desenvolvi o backend em Django para monitoramento de dados energéticos e integração por APIs REST.",
     technologies: ["Python", "Django", "APIs REST"],
@@ -65,6 +69,8 @@ export const projects: ProjectItem[] = [
     status: "Kernel experimental",
     description:
       "Kernel experimental em Rust para explorar inicialização de sistemas e organização de memória.",
+    result:
+      "Repositório documenta boot UEFI com Limine, validação em QEMU e workspace Cargo.",
     contribution:
       "Desenvolvi a inicialização do kernel e documentei o fluxo de boot e a organização em workspace Cargo.",
     technologies: ["Rust", "UEFI", "Limine", "QEMU", "Cargo"],

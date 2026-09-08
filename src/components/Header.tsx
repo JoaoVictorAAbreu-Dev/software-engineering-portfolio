@@ -20,6 +20,28 @@ export function Header() {
         setOpen(false);
         menuButton.current?.focus();
       }
+
+      if (event.key === "Tab") {
+        const focusable = Array.from(
+          document.querySelectorAll<HTMLElement>(
+            "#mobile-navigation a, #mobile-navigation button",
+          ),
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (
+          first &&
+          last &&
+          event.shiftKey &&
+          document.activeElement === first
+        ) {
+          event.preventDefault();
+          last.focus();
+        } else if (last && !event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -27,7 +49,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border-soft)] bg-[rgba(7,11,28,0.82)] backdrop-blur-xl">
+    <header className="site-header sticky top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-5 lg:px-8">
         <NavLink to="/" className="group flex min-w-0 items-center gap-3">
           <span className="brand-mark">JV</span>
@@ -42,7 +64,7 @@ export function Header() {
         </NavLink>
 
         <nav
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-1 md:flex"
           aria-label="Navegação principal"
         >
           {navItems.map((item) => (
@@ -56,8 +78,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <a href={resumeUrl} download className="btn-secondary">
+        <div className="hidden items-center gap-3 md:flex">
+          <a href={resumeUrl} download className="btn-primary">
             <HiOutlineArrowDownTray />
             Currículo
           </a>
@@ -66,7 +88,7 @@ export function Header() {
         <button
           ref={menuButton}
           type="button"
-          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-elevated)] text-[var(--text-strong)] lg:hidden"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[var(--border-soft)] bg-[var(--surface-elevated)] text-[var(--text-strong)] md:hidden"
           onClick={() => setOpen((current) => !current)}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
@@ -80,7 +102,7 @@ export function Header() {
         <nav
           aria-label="Navegação móvel"
           id="mobile-navigation"
-          className="border-t border-[var(--border-soft)] px-4 pb-4 pt-2 lg:hidden"
+          className="border-t border-[var(--border-soft)] bg-[var(--surface-card)] px-4 pb-4 pt-2 md:hidden"
         >
           <div className="flex flex-col gap-2">
             {navItems.map((item) => (
@@ -88,7 +110,7 @@ export function Header() {
                 key={item.href}
                 href={sectionHref(item.href)}
                 onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-medium text-[var(--text-muted)] transition hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]"
+                className="nav-link w-full justify-start rounded-lg px-4 py-3 text-sm font-medium transition hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]"
               >
                 {item.label}
               </a>

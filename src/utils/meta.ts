@@ -88,6 +88,19 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
       content: "Foto de perfil de João Victor Alves de Abreu",
     });
 
+    upsertMeta('meta[property="og:image:width"]', {
+      property: "og:image:width",
+      content: "1200",
+    });
+    upsertMeta('meta[property="og:image:height"]', {
+      property: "og:image:height",
+      content: "1200",
+    });
+    upsertMeta('meta[property="og:image:type"]', {
+      property: "og:image:type",
+      content: "image/webp",
+    });
+
     upsertMeta('meta[name="twitter:title"]', {
       name: "twitter:title",
       content: title,

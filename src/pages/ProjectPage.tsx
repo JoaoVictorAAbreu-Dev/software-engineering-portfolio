@@ -29,6 +29,9 @@ export function ProjectPage() {
               {project.type} · {project.status}
             </p>
             <p className="mt-6 max-w-3xl leading-7">{project.description}</p>
+            <p className="project-result mt-5 max-w-3xl">
+              <strong>Resultado verificável:</strong> {project.result}
+            </p>
             <h2 className="mt-8 text-xl font-semibold">Minha contribuição</h2>
             <p className="mt-3 max-w-3xl leading-7">{project.contribution}</p>
             <h2 className="mt-8 text-xl font-semibold">Evidências técnicas</h2>
