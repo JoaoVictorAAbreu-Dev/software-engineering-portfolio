@@ -14,7 +14,7 @@ function App() {
       <Suspense
         fallback={
           <div
-            className="min-h-screen bg-[#020402]"
+            className="min-h-screen bg-[var(--bg-primary)]"
             aria-label="Carregando conteúdo do portfólio"
           />
         }

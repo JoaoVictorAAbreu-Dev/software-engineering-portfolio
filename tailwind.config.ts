@@ -6,20 +6,20 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: "#EEF2FF",
-          100: "#E0E7FF",
-          300: "#A5B4FC",
-          500: "#6366F1",
-          700: "#4F46E5",
-          900: "#3730A3",
+          50: "#F4F2E9",
+          100: "#E9E9DB",
+          300: "#BAC2B2",
+          500: "#D2E4A4",
+          700: "#BED18F",
+          900: "#171916",
         },
         accent: {
-          500: "#06B6D4",
+          500: "#D2E4A4",
         },
       },
       fontFamily: {
         sans: ["Inter", "Segoe UI", "system-ui", "sans-serif"],
-        display: ["Poppins", "Inter", "Segoe UI", "sans-serif"],
+        display: ["Inter", "Segoe UI", "system-ui", "sans-serif"],
       },
     },
   },
