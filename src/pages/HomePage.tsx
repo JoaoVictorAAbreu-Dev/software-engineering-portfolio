@@ -43,12 +43,25 @@ export function HomePage() {
             <a href="#projetos" className="btn-primary">
               Ver projetos
             </a>
-            <a href={resumeUrl} download className="btn-secondary">
+            <a href="#contato" className="btn-secondary">
+              Falar comigo
+            </a>
+            <a href={resumeUrl} download className="btn-tertiary">
               Baixar currículo
             </a>
           </div>
         </div>
-        <ProfilePhoto />
+        <div className="hero-aside">
+          <ProfilePhoto />
+          <div
+            className="hero-proof"
+            aria-label="Resumo de disponibilidade e foco"
+          >
+            <strong>Disponível para estágio</strong>
+            <span>Java · Spring Boot · APIs REST</span>
+            <span>Suzano, SP</span>
+          </div>
+        </div>
       </section>
 
       <section
@@ -75,6 +88,9 @@ export function HomePage() {
               <p className="mt-5 text-sm leading-7 text-[var(--text-muted)]">
                 {project.description}
               </p>
+              <p className="project-result mt-4">
+                <strong>Resultado verificável:</strong> {project.result}
+              </p>
               <h4 className="mt-5 text-sm font-semibold">Minha contribuição</h4>
               <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">
                 {project.contribution}
@@ -96,7 +112,10 @@ export function HomePage() {
                 ))}
               </ul>
               {project.githubUrl && (
-                <div className="mt-auto pt-6">
+                <div className="mt-auto flex flex-wrap gap-3 pt-6">
+                  <a href={`/projetos/${project.slug}`} className="btn-primary">
+                    Ver evidências
+                  </a>
                   <ExternalLink
                     href={project.githubUrl}
                     className="btn-secondary"
@@ -105,6 +124,14 @@ export function HomePage() {
                     Repositório do {project.title}
                   </ExternalLink>
                 </div>
+              )}
+              {!project.githubUrl && (
+                <a
+                  href={`/projetos/${project.slug}`}
+                  className="btn-primary mt-auto pt-3"
+                >
+                  Ver evidências
+                </a>
               )}
             </article>
           ))}

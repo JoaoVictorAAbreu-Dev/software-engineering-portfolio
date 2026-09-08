@@ -4,6 +4,7 @@ export type ProjectItem = {
   type: string;
   status: string;
   description: string;
+  result: string;
   contribution: string;
   technologies: string[];
   evidence: string[];

@@ -20,6 +20,28 @@ export function Header() {
         setOpen(false);
         menuButton.current?.focus();
       }
+
+      if (event.key === "Tab") {
+        const focusable = Array.from(
+          document.querySelectorAll<HTMLElement>(
+            "#mobile-navigation a, #mobile-navigation button",
+          ),
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (
+          first &&
+          last &&
+          event.shiftKey &&
+          document.activeElement === first
+        ) {
+          event.preventDefault();
+          last.focus();
+        } else if (last && !event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);

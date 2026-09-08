@@ -56,10 +56,22 @@ button:focus-visible {
     @apply mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8;
   }
   .hero-section {
-    @apply grid items-center gap-8 py-10 sm:py-14 lg:grid-cols-[1fr_288px] lg:gap-16;
+    @apply grid items-center gap-8 py-10 sm:py-14 lg:grid-cols-[1fr_320px] lg:gap-16;
   }
   .profile-photo {
     @apply flex h-48 w-48 items-center justify-center overflow-hidden rounded-full border border-[var(--border-soft)] sm:h-60 sm:w-60 lg:h-72 lg:w-72;
+  }
+  .hero-aside {
+    @apply grid justify-items-center gap-5;
+  }
+  .hero-proof {
+    @apply grid w-full max-w-xs gap-1 rounded-xl border border-[var(--border-soft)] bg-[var(--surface-card)] px-4 py-3 text-sm;
+  }
+  .hero-proof strong {
+    color: var(--text-strong);
+  }
+  .hero-proof span {
+    color: var(--text-muted);
   }
   .project-card {
     @apply flex min-w-0 flex-col rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card)] p-6;
@@ -73,6 +85,13 @@ button:focus-visible {
   .btn-primary,
   .btn-secondary {
     @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold transition-colors;
+  }
+  .btn-tertiary {
+    @apply inline-flex min-h-11 items-center justify-center px-2 py-3 text-sm font-medium underline decoration-[var(--border-strong)] underline-offset-4;
+    color: var(--text-muted);
+  }
+  .btn-tertiary:hover {
+    color: var(--text-strong);
   }
   .btn-primary {
     background: #2350bc;
@@ -97,6 +116,10 @@ button:focus-visible {
     @apply inline-flex rounded-md px-2 py-1 text-xs leading-5;
     background: #1b2b44;
     color: #dae8fa;
+  }
+  .project-result {
+    @apply rounded-lg border-l-2 border-[var(--accent)] bg-[var(--surface-elevated)] px-3 py-2 text-sm leading-6;
+    color: var(--text-muted);
   }
   .brand-mark {
     @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--border-soft)] font-semibold;

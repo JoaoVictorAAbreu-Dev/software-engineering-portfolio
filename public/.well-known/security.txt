@@ -1,0 +1,4 @@
+Contact: mailto:joaovictoralvesabreu1@gmail.com
+Policy: https://github.com/JoaoVictorAAbreu-Dev/software-engineering-portfolio/security/policy
+Preferred-Languages: pt-BR, en
+Expires: 2027-09-08T00:00:00.000Z
